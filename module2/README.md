@@ -312,3 +312,15 @@ for key, value := range m {
 ```
 
 As seen from this example, the first value is the key, while the second one is the value.
+
+## Task
+
+You are given a list of Star Wars character names.
+You need to return a map that counts how many times each character is in the list.
+But because Darth Vader and Darth Sidious are evil, we don’t want to count them.
+
+### Additional exercise
+
+Building upon the solution of the previous task exclude all character whose names start with "Darth".
+
+**HINT:** Take a look at the `HasPrefix` function from the `strings` package.
