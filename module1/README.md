@@ -54,6 +54,38 @@ func printNameAndReturnNameAndRandomInt(name string) (string, int) {
 
 Variables in Go are defined with the `var` keyword. The type may be omitted, because it is inferred. If we give a type, but no value, the value is the default value for the type. We can omit the var keyword if we use `:=`. We can also define constants via the `const` keyword. However, not all types can be constants (more on that later).
 
+There are few ways to define a variable:
+
+```go
+var i int
+```
+
+This defines `i` as variable of type `int`.
+Since we do not assign value to it, it gets the default value for type `int` which is `0`.
+
+```go
+var i int = 5
+```
+
+This defines `i` as variable of type `int` and value `5`.
+
+```go
+var i = 10
+```
+
+This defines `i` as variable with value value `10`.
+Even though we don't specify the type, Go is able to infer it as `int`.
+
+```go
+i := 15
+```
+
+This is the shorthand syntax for defining a value with the `:=` operator.
+This way we do not need to use the `var` keyword.
+
+NOTE: This syntax is valid only in function blocks.
+You cannot define a global variable this way.
+
 ## Types
 
 The basic types in Go are `bool`, `string`, `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`, `uintptr`, `byte` (alias for `uint8`), rune(alias for `int32`), `float32`, `float64`, `complex64`, `complex128`.
