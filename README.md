@@ -1,6 +1,5 @@
 # go-101-workshop
-A repo to go along with the HackConf 2021 Workshop. Built by @asankov, @borisbsv.
-
+A repo to go along with the HackConf 2021 Workshop. Built by [Anton Sankov](https://github.com/asankov) and [Boris Stoyanov](https://github.com/borisbsv).
 
 ## Environment setup
 ### [Install Go](https://golang.org/doc/install)
