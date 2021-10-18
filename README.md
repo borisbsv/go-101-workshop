@@ -17,6 +17,6 @@ Go IDE setup
 
 ### [Module 1 - Syntax, variables and functions](module1/README.md)
 
-### Module 2 - Control flows and basic data structures
+### [Module 2 - Control flows and basic data structures](module2/README.md)
 
-### Module 3 - Structs, methods and pointers
+### [Module 3 - Structs, methods and pointers](module3/README.md)
