@@ -1,6 +1,31 @@
 # Module 1 - Packages, variables, functions and basic types
 
-Go is a compiled, strongly typed-language. Compiled means that in order to run a Go program you need to first compile it for your operating system and then run the output binary. That binary is self-contained, it does not need anything else to run (unlike the JVM languages for example). Strongly-typed means that there are types in Go, these types are known at compile time, and one variable has only one type.
+Go is a **compiled**, **strongly-typed** language.
+**Compiled** means that in order to run a Go program you need to first compile it for your operating system and then run the output binary.
+That binary is self-contained, it does not need anything else to run (unlike the JVM languages for example).
+
+If we have a directory that has a file named `main.go` inside, we can compile this file using:
+
+```sh
+go build main.go
+```
+
+This will produce the binary named `main`, which we can run.
+
+There is also the `go run` shortcut, which build the binary into a temporary folder and runs it, e.g.
+
+```sh
+go run main.go
+```
+
+is equivalent to
+
+```sh
+go build main.go
+./run
+```
+
+**Strongly-typed** means that there are types in Go, these types are known at compile time, and one variable has only one type.
 
 ## Packages
 
