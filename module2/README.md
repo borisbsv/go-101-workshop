@@ -149,8 +149,8 @@ case a > b:
     fmt.Println("a > b")
 case a <= b: // this is true
     fmt.Println("a <= b")
-case a == b: // this is also true
-    fmt.Println("a == b")
+case a < b: // this is also true
+    fmt.Println("a < b")
 }
 ```
 
@@ -167,8 +167,8 @@ case a > b:
 case a <= b: // this is true
     fmt.Println("a <= b")
     fallthrough
-case a == b: // this is also true
-    fmt.Println("a == b")
+case a < b: // this is also true
+    fmt.Println("a < b")
 }
 ```
 
@@ -262,7 +262,7 @@ georgiScore := scores["Georgi"]
 But what happens if an element is not in the map?
 
 ```go
-score := scores["Peter"] // score = 0
+peterScore := scores["Peter"] // score = 0
 ```
 
 Why `0`?
@@ -272,7 +272,8 @@ Go has a solution for this problem as well.
 We can actually write the following code as:
 
 ```go
-score, ok := scores["Peter"] // score = 0, ok = false
+ivanScore, ok := scores["Ivan"] // score = 5, ok = true
+peterScore, ok := scores["Peter"] // score = 0, ok = false
 ```
 
 In this case ok is a boolean value that tells us whether the key “Peter" exists in the map scores or not.
@@ -318,6 +319,10 @@ As seen from this example, the first value is the key, while the second one is t
 You are given a list of Star Wars character names.
 You need to return a map that counts how many times each character is in the list.
 But because Darth Vader and Darth Sidious are evil, we don’t want to count them.
+
+Use this [scaffold](https://play.golang.org/p/X9U3Xk-SX9d).
+Implement the `count` function.
+After running the code, you should see `SUCCESS` on the screen.
 
 ### Additional exercise
 
