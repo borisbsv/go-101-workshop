@@ -225,7 +225,8 @@ s = append(s, "n+1 element")
 
 We can do this as many times as we like. As long as we have enough memory, Go will resize the slice and will save inside all the elements we want it to save.
 
-In practice, you will rarely see someone using arrays.
+In practice, slice are used more widely than arrays, because of the size flexibility.
+However, the main use-case for arrays is memory-limit, so they are still used in situations where you need to ensure that your data won't go over a given limit.
 
 ## Map
 
