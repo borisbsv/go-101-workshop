@@ -194,7 +194,7 @@ To push data into the array we do it like this:
 arr[0] = "first element"
 arr[1] = "second element"
 arr[2] = "third element"
-arr[3] = "fourth element" // runtime-error
+arr[3] = "fourth element" // compile-time error
 ```
 
 As you can see, in this case `arr` holds only 3 elements and cannot hold a fourth one. In practice, this is sub-optimal.
