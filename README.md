@@ -31,6 +31,11 @@ If you want to continue learning Go here are some good next steps:
 
 Complete the Tour of Go. Focus on the things we did not bring up here - interfaces, defers, named returns, etc.
 
+### [Go Wiki](https://github.com/golang/go/wiki/)
+
+A comprehensive wiki, that contains a lot of material about different topics around Go.
+Some of the links below are duplicated there as well.
+
 #### [HTTP in Go](https://pkg.go.dev/net/http)
 
 Go is widely-used for web applications.
