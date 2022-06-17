@@ -124,6 +124,8 @@ The reasoning for that was that the Go creators wanted to keep the language simp
 The language provided other constructs to overcome that limitation.
 These included interfaces and code-generation.
 
+This was corrected in [Go 1.18](https://go.dev/blog/go1.18) when [Type Parameters](https://go.dev/blog/intro-generics) were added to the language.
+
 Here's a really simple function that has a type parameter:
 
 ```go
@@ -153,6 +155,36 @@ For example, the following code is not valid:
 ```go
 PrintWhatever(1, 2.3) // compile-time error, parameters must be of the same type
 ```
+
+Another place where we can use type parameters is for struct fields.
+We can have a struct that has a field with generic type, specified when creating the struct.
+For example:
+
+```go
+type GenericContainer[T any] struct {
+  Value T
+}
+```
+
+This defines a struct `GenericContainer` that has one field - `Value` of type `T`.
+The exact type of `Value` is specified when instantiating the struct.
+For example:
+
+```go
+intContainer := GenericContainer[int] {
+  Value: 5
+}
+
+floatContainer := GenericContainer[float64] {
+  Value: 5.1
+}
+
+stringContainer := GenericContainer[string] {
+  Value: "some value"
+}
+```
+
+These examples are pretty basic and not really useful, but you can see easily think of more use-cases for this language feature (especially if you come from language like Java or C#).
 
 ## Tasks
 ### Persistent calculator
