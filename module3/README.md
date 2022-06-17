@@ -117,7 +117,42 @@ So why do we care about all this, doesn't it just complicate our code? Three thi
 
 But then, why don't we always pass objects by reference, the way C#, Java and Python do? Again, several use cases, but most often, you don't want the objects you pass to a function to be modifiable in it's scope, because that leads to code that's *extremely* difficult to debug. There's also a bit more advanced issues here, where accessing memory through a pointer is slower than having a copy passed directly, but stack and heap are a topic beyond this workshop.
 
-## Type parameters
+## Type parameters (Generics)
+
+Since its creation Go was notorious for not having type parameters, or so called generics.
+The reasoning for that was that the Go creators wanted to keep the language simple, and generics do include a lot of complexity (both syntax-wise and their implementation under the hood).
+The language provided other constructs to overcome that limitation.
+These included interfaces and code-generation.
+
+Here's a really simple function that has a type parameter:
+
+```go
+func PrintWhatever[T any](first, second T) {
+  fmt.Println(first, second)
+}
+```
+
+This functions accepts 2 parameters, both of which are going to be of the generic type `T`.
+We can specify this type when we call the function:
+
+```go
+PrintWhatever[int](1, 2)
+PrintWhatever[float64](1.2, 2.3)
+```
+
+or we can let the compiler infer the type for us:
+
+```go
+PrintWhatever(1, 2)
+```
+
+This example is a simple one, but it shows an important thing - via type parameters we can enforce that multiple arguments of the same function will have the same type.
+
+For example, the following code is not valid:
+
+```go
+PrintWhatever(1, 2.3) // compile-time error, parameters must be of the same type
+```
 
 ## Tasks
 ### Persistent calculator
