@@ -45,27 +45,27 @@ func Greet(d *dog) string {
 }
 ```
 
-This way, instead of having to call it with `packagename.Greet(d)`, we can use the syntax we're used to from other languages and call it with a method syntax - `d.Greet()`. Here are some more full-blooded examples:
+This way, instead of having to call it with `packagename.Greet(d)`, we can use the syntax we're used to from other languages and call it with a method syntax - `d.Greet()`. Here are is a more full-blooded example ([interactive link](https://go.dev/play/p/BSyy_d4Eq9n)):
 
 ```go
 package main
 
 import (
-	"animals"
-	
+	"demo/animals"
+
 	"fmt"
 )
 
-func() {
+func main() {
 	d := animals.Dog{
-		Legs:4,
+		Legs:     4,
 		Greeting: "Woof!",
 		Cuteness: uint64(0),
 	}
 
 	// No sugar coating
-	fmt.Println(animals.Greet(&d))
-	
+	fmt.Println(animals.Dog.Greet(d))
+
 	// Sugar coating
 	fmt.Println(d.Greet())
 }
@@ -116,6 +116,8 @@ So why do we care about all this, doesn't it just complicate our code? Three thi
  - We might want the function to alter the state of the object that was passed in (this one is a rare case we try to aviod)
 
 But then, why don't we always pass objects by reference, the way C#, Java and Python do? Again, several use cases, but most often, you don't want the objects you pass to a function to be modifiable in it's scope, because that leads to code that's *extremely* difficult to debug. There's also a bit more advanced issues here, where accessing memory through a pointer is slower than having a copy passed directly, but stack and heap are a topic beyond this workshop.
+
+## Type parameters
 
 ## Tasks
 ### Persistent calculator
