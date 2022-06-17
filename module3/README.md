@@ -187,6 +187,12 @@ stringContainer := GenericContainer[string] {
 These examples are pretty basic and not really useful, but you can see easily think of more use-cases for this language feature (especially if you come from language like Java or C#).
 
 ## Tasks
-### Persistent calculator
-Your task is to implement a calculator that can execute the following operations - `Plus(int a)`, `Minus(int a)`, `Multiply(int a)`, `Divide(int a)` and `Equals() int`. The calculator should remember the running total and when `Equals()` is called, should output the result of all calculations and reset its state.
 
+### Persistent calculator
+
+Your task is to implement a calculator that can execute the following operations - `Plus(int a)`, `Minus(int a)`, `Multiply(int a)`, `Divide(int a)` and `Equals() int`. The calculator should remember the running total and when `Equals()` is called, should output the result of all calculations and reset its state - here's [a scaffold](https://go.dev/play/p/iTP87EtY8EZ).
+
+### Generic persistent calculator
+
+Now, the calculator you created works well for `int`, but if you need to use it for floating point numbers you'd need to rewrite it from scratch. Instead, alter it, to accept `any`.
+Didn't work out, did it? `any` allows  us to accept any type, but also constrains us to operations that can be done on any type. To work around that go has defined the concept of `constraints` - the ability to define sets of methods or unions of types. For more info check [this article](https://go.dev/doc/tutorial/generics). Now let's create a working generic calculator from [this scaffold](https://go.dev/play/p/bcgwg-gLS3y).
