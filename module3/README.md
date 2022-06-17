@@ -60,7 +60,7 @@ func() {
 	d := animals.Dog{
 		Legs:4,
 		Greeting: "Woof!",
-		Cuteness: ^uint64(0),
+		Cuteness: uint64(0),
 	}
 
 	// No sugar coating
@@ -72,7 +72,10 @@ func() {
 ```
 ## Pointers and references
 
-People with C/C++ background will feel comfortable with the next topic so you can skim over it. Said topic is pointers, references and passing parameters by value or reference. In C# or Java, when you define a method that accepts an object (an instance of a class) as a parameter, you're implicitly passing a pointer to that object - a numeric value, an address that tells the method where it can find the memory where the object is being stored. If you then change that object within the scope of the method and try to access it from the caller's scope, you'll see that the changes made in the callee have affected the caller's scope. As opposed to this default behaviour in go, if you just pass a struct to a function, you'll be passing the structure's value - in effect a copy of the object's contents to the function. To receive behaviour that's corresponding to the one you expect in classic OOP-driven languages you'd need to explicitly pass a pointer to the struct by using an ampersand before the argument type declaration. Syntax-wise pointers in go are relatively simple. When you want to get a pointer to an object, you prefix it with an ampersand, like so `d := &dog{}`, when you want to indicate that you want something to be of a reference type, you prefix it with an asterisk like so `func greet(d *dog)`.
+People with C/C++ background will feel comfortable with the next topic so you can skim over it. Said topic is pointers, references and passing parameters by value or reference. In C# or Java, when you define a method that accepts an object (an instance of a class) as a parameter, you’re implicitly passing a pointer to that object - a numeric value, an address that tells the method where it can find the memory where the object is being stored. If you then change that object within the scope of the method and try to access it from the caller’s scope, you’ll see that the changes made in the callee have affected the caller’s scope.
+
+As opposed to this default behaviour, in go if you just pass a struct to a function, you’ll be passing the structure’s value - in effect a copy of the object’s contents to the function. To receive behaviour that’s corresponding to the one you expect in classic OOP-driven languages you’d need to explicitly pass a pointer to the struct by using an ampersand before the argument type declaration. Syntax-wise pointers in go are relatively simple. When you want to get a pointer to an object, you prefix it with an ampersand, like so `d := &dog{}`, when you want to indicate that you want something to be of a reference type, you prefix it with an asterisk like so `func greet(d *dog)`.
+
 Here's a basic example and an [interactive link to it](https://play.golang.org/p/ZFQg7eoU9e5):
 
 ```go
@@ -107,7 +110,12 @@ func main() {
 }
 ```
 
-So why do we care about all this, doesn't it just complicate our code? This can be a workshop in and of itself, but here are three important things to note for the cases where you do want to pass a reference - one we might actually care about the exact memory there - a pool of connections to the DB, an open TCP socket and so on. Two - if the structs are large, copying them often can make your stack too thick and copying an entire struct is slower than just copying the pointer number. And three, we might want the function to alter the state of the object that was passed in (this one is a rare case we try to aviod). But then, why don't we always pass objects by reference, the way C#, Java and Python do? Again, several use cases, but most often, you don't want the objects you pass to a function to be modifiable in there, because that leads to code that's *extremely* difficult to debug and maintain. There's also a bit more advanced issues here, where accessing memory through a pointer is slower than having a copy passed directly, but stack and heap are a topic beyond this workshop.
+So why do we care about all this, doesn't it just complicate our code? Three things are important to note for the cases where you do want to pass a reference. 
+ - We might actually care about the exact memory there - a pool of connections to the DB, an open TCP socket and so on
+ - If the structs are large, copying them often can make your stack too thick and copying an entire struct is slower than just copying the pointer number
+ - We might want the function to alter the state of the object that was passed in (this one is a rare case we try to aviod)
+
+But then, why don't we always pass objects by reference, the way C#, Java and Python do? Again, several use cases, but most often, you don't want the objects you pass to a function to be modifiable in it's scope, because that leads to code that's *extremely* difficult to debug. There's also a bit more advanced issues here, where accessing memory through a pointer is slower than having a copy passed directly, but stack and heap are a topic beyond this workshop.
 
 ## Tasks
 ### Persistent calculator

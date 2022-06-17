@@ -19,7 +19,7 @@ Also, `for` is go’s while loop.
 What in other languages you would write as:
 
 ```java
-// ❗️❗️❗️ not a valid Go code ❗️❗️❗️
+// ❗️❗️❗️ not valid Go code ❗️❗️❗️
 while (isTrue) {
     // do something
 }
@@ -160,7 +160,7 @@ This is the reason why there is no break statement in go switches - because brea
 
 ```go
 a, b := 5, 6
-switch{
+switch {
 case a > b:
     fmt.Println("a > b")
     fallthrough
