@@ -195,4 +195,5 @@ Your task is to implement a calculator that can execute the following operations
 ### Generic persistent calculator
 
 Now, the calculator you created works well for `int`, but if you need to use it for floating point numbers you'd need to rewrite it from scratch. Instead, alter it, to accept `any`.
+
 Didn't work out, did it? `any` allows  us to accept any type, but also constrains us to operations that can be done on any type. To work around that go has defined the concept of `constraints` - the ability to define sets of methods or unions of types. For more info check [this article](https://go.dev/doc/tutorial/generics). Now let's create a working generic calculator from [this scaffold](https://go.dev/play/p/bcgwg-gLS3y).
