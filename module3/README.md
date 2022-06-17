@@ -32,7 +32,7 @@ type ID string
 Now, what can we do with structs? Well, just about anything we can do with any other type, except for using them with logical or mathematical operators (`<`, `==`, `+` and so on). Another quite important thing we can do with self-defined types is to use them as the receivers for methods. What does that mean? In short, the following.
 
 ```go
-func (d *dog) Greet() string {
+func (d *Dog) Greet() string {
 	return d.Greeting
 }
 ```
@@ -40,12 +40,12 @@ func (d *dog) Greet() string {
 We can attach a function to be executed on an instance of a type. What’s that again? Well, basically, the following example, but with sugar coating.
 
 ```go
-func Greet(d *dog) string {
+func Greet(d *Dog) string {
 	return d.Greeting
 }
 ```
 
-This way, instead of having to call it with `packagename.Greet(d)`, we can use the syntax we're used to from other languages and call it with a method syntax - `d.Greet()`. Here are is a more full-blooded example ([interactive link](https://go.dev/play/p/BSyy_d4Eq9n)):
+This way, instead of having to call it with `typename.Greet(d)`, we can use the syntax we're used to from other languages and call it with a method syntax - `d.Greet()`. Here are is a more full-blooded example ([interactive link](https://go.dev/play/p/BSyy_d4Eq9n)):
 
 ```go
 package main
