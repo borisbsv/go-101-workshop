@@ -186,6 +186,34 @@ stringContainer := GenericContainer[string] {
 
 These examples are pretty basic and not really useful, but you can see easily think of more use-cases for this language feature (especially if you come from language like Java or C#).
 
+### Type constraints
+
+An important thing to know when working with generics is **type constraints**.
+This is the limitation for the generic type.
+
+In all the example above we see the generic type as `T any`.
+This means type `T` with constraint `any`.
+Constraint `any` means no constraint.
+The type `T` can be absolutely everything.
+
+You can define your own constraint, but this is beyond the scope of this workshop.
+
+The [`golang.org/x/exp/constraints`](https://pkg.go.dev/golang.org/x/exp/constraints) exposes a set of useful constraints.
+For example, if you want a generic type that is limited only to the integer types (`int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`, `uintptr`) you can use the `constraints.Integer` constraint.
+For example:
+
+```go
+import "golang.org/x/exp/constraints"
+
+func SumInts[T constraints.Integer] (first, second T) T {
+  return first + second
+}
+
+SumInts(1, 5)               // ✅ OK
+SumInts(int16(1), int16(5)) // ✅ OK
+SumInts(5.1, 2.3)           // ❌ compile-time error - "float64 does not implement constraints.Integer"
+```
+
 ## Tasks
 
 ### Persistent calculator
